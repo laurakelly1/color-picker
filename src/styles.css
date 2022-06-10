@@ -2,3 +2,23 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.colorPicker {
+  border: 1px solid black;
+  height: 100px;
+  width: 300px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  background-color: white;
+}
+.squares {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  gap: 20px;
+}
+.square {
+  border: 1px solid black;
+  height: 50px;
+  width: 50px;
+}
