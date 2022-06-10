@@ -4,9 +4,6 @@ import Form from "./components/Form";
 import Display from "./components/Display";
 
 export default function App() {
-  //This state will carry the choose color and pass it to the boxes
-  const [color, setColor] = React.useState(null);
-
   //function to get a color
   const randomColor = () => {
     const randomColor = () => Math.floor(Math.random() * 256);
@@ -17,8 +14,7 @@ export default function App() {
   };
 
   //function to build ColorPicker
-
-  const getColor = () => {
+  const getColors = () => {
     let colorArray = [];
 
     //remove previous colors
@@ -42,11 +38,24 @@ export default function App() {
     }
   };
 
+  // Show colors on load
+  React.useEffect(() => {
+    getColors();
+  });
+
+  //This state will carry the choose color and pass it to the boxes
+  const [color, setColor] = React.useState("Selected color");
+
   return (
     <div className="App">
       <h1>Color Picker</h1>
       <div className="colorPicker"></div>
-      <Form colorSearch={getColor} />
+      <div className="selected">
+        <h2>{color}</h2>
+        <div className="selectedBlock"></div>
+      </div>
+
+      <Form colorSearch={getColors} />
       <Display />
     </div>
   );

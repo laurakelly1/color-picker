@@ -17,6 +17,18 @@
   width: 20px;
   height: 20px;
 }
+
+.selected {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.selectedBlock {
+  border: 1px solid black;
+  height: 50px;
+  width: 50px;
+}
+
 .squares {
   display: flex;
   justify-content: center;
