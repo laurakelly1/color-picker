@@ -44,15 +44,35 @@ export default function App() {
   });
 
   //This state will carry the choose color and pass it to the boxes
-  const [color, setColor] = React.useState("Selected color");
+  const [color, setColor] = React.useState("rgb(255, 255, 255)");
+
+  // function to change the color of the tile.
+
+  // event listener
+  // React.useEffect(() => {
+  //   const colorBlocks = document.getElementsByClassName("colorPicker")[0];
+
+  //   colorBlocks.addEventListener("click", colorChange());
+  //   return () => {
+  //     colorBlocks.removeEventListener("click", colorChange);
+  //   };
+  // });
+  const colorChange = (e) => {
+    setColor(e.target.style.backgroundColor);
+  };
 
   return (
     <div className="App">
       <h1>Color Picker</h1>
-      <div className="colorPicker"></div>
+      <div className="colorPicker" onClick={colorChange}></div>
       <div className="selected">
-        <h2>{color}</h2>
-        <div className="selectedBlock"></div>
+        <h2>Selected color</h2>
+        <div
+          className="selectedBlock"
+          style={{
+            backgroundColor: color
+          }}
+        ></div>
       </div>
 
       <Form colorSearch={getColors} />
