@@ -47,16 +47,6 @@ export default function App() {
   const [color, setColor] = React.useState("rgb(255, 255, 255)");
 
   // function to change the color of the tile.
-
-  // event listener
-  // React.useEffect(() => {
-  //   const colorBlocks = document.getElementsByClassName("colorPicker")[0];
-
-  //   colorBlocks.addEventListener("click", colorChange());
-  //   return () => {
-  //     colorBlocks.removeEventListener("click", colorChange);
-  //   };
-  // });
   const colorChange = (e) => {
     setColor(e.target.style.backgroundColor);
   };
@@ -76,7 +66,7 @@ export default function App() {
       </div>
 
       <Form colorSearch={getColors} />
-      <Display />
+      <Display color={color} />
     </div>
   );
 }
