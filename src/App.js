@@ -2,7 +2,6 @@ import "./styles.css";
 import React from "react";
 import Form from "./components/Form";
 import Display from "./components/Display";
-import ColorPicker from "./components/ColorPicker";
 
 export default function App() {
   //This state will carry the choose color and pass it to the boxes
@@ -18,19 +17,35 @@ export default function App() {
   };
 
   //function to build ColorPicker
-  let colorArray = [];
+
   const getColor = () => {
+    let colorArray = [];
+
+    //remove previous colors
+    let blocks = document.querySelectorAll(".colorBlock");
+    blocks.forEach((block) => block.remove());
+
     // gets 64 random colors
     for (let i = 0; i < 64; i++) {
       colorArray.push(randomColor());
     }
-    // makes 64 blocks
+    colorPicker(colorArray);
+  };
+
+  // makes 64 blocks
+  const colorPicker = (array) => {
+    for (let i = 0; i < array.length; i++) {
+      let block = document.createElement("div");
+      block.className = "colorBlock";
+      block.style.backgroundColor = array[i];
+      document.getElementsByClassName("colorPicker")[0].appendChild(block);
+    }
   };
 
   return (
     <div className="App">
       <h1>Color Picker</h1>
-      <ColorPicker />
+      <div className="colorPicker"></div>
       <Form colorSearch={getColor} />
       <Display />
     </div>

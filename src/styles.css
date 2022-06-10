@@ -5,11 +5,17 @@
 
 .colorPicker {
   border: 1px solid black;
-  height: 100px;
-  width: 300px;
+  height: 80px;
+  width: 320px;
   margin: 0 auto;
   margin-bottom: 20px;
   background-color: white;
+  display: flex;
+  flex-flow: row wrap;
+}
+.colorBlock {
+  width: 20px;
+  height: 20px;
 }
 .squares {
   display: flex;
