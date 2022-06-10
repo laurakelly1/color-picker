@@ -41,7 +41,7 @@ export default function App() {
   // Show colors on load
   React.useEffect(() => {
     getColors();
-  });
+  }, []);
 
   //This state will carry the choose color and pass it to the boxes
   const [color, setColor] = React.useState("rgb(255, 255, 255)");
@@ -55,6 +55,7 @@ export default function App() {
     <div className="App">
       <h1>Color Picker</h1>
       <div className="colorPicker" onClick={colorChange}></div>
+
       <div className="selected">
         <h2>Selected color</h2>
         <div
